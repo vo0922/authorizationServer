@@ -9,7 +9,7 @@ class DemoApplicationTests {
 
 	@Test
 	void test() {
-		assertThat("test").isEqualTo("tes");
+		assertThat("test").isEqualTo("test");
 	}
 
 }
