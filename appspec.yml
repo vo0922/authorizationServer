@@ -14,13 +14,13 @@ files:
 #  - object: /home/ubuntu/build #경로 대상 지정
 #    owner: sinuk #object의 소유자
 #    group: ubuntu #object의 그룹 이름
-#hooks:
+hooks:
 #  ApplicationStop:
 #    - location: scripts/stop.sh
-#  AfterInstall:
-#    - location: scripts/initialize.sh
-#      timeout: 60
-#      runas: root
+  AfterInstall:
+    - location: build/scripts/initialize.sh
+      timeout: 60
+      runas: root
 #  ApplicationStart:
 #    - location: scripts/start.sh
 #      runas: root
