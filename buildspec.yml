@@ -16,13 +16,6 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
-      - mkdir -p /build/libs
-      - mkdir -p /build/spec
-      - mkdir -p /scripts
-      - cp build/libs/*.jar /build/libs/
-      - cp appspec.yml /build/spec/
-      - cp buildspec.yml /build/spec/
-      - cp -r scripts/* /scripts/
 artifacts:
   files:
     - build/libs/*.jar
@@ -30,6 +23,7 @@ artifacts:
     - buildspec.yml
     - scripts/**
   discard-paths: yes
+  base-directory: build
 cache:
   paths:
     - '/root/.gradle/caches/**/*'
