@@ -23,7 +23,6 @@ artifacts:
     - buildspec.yml
     - scripts/**
   discard-paths: yes
-  base-directory: build
 cache:
   paths:
     - '/root/.gradle/caches/**/*'
