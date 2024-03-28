@@ -13,14 +13,13 @@ phases:
     commands:
       - echo Build Starting on `date`
       - ./gradlew build
-
   post_build:
     commands:
       - echo Build completed on `date`
-      - cp build/libs/*.jar /build/*.jar/
-      - cp appspec.yml /build/spec/
-      - cp buildspec.yml /build/spec/
-      - cp scripts/** /scripts/
+      - cp build/libs/*.jar build/*.jar/
+      - cp appspec.yml build/spec/
+      - cp buildspec.yml build/spec/
+      - cp -r scripts/** scripts/
 artifacts:
   files:
     - build/libs/*.jar
