@@ -1,11 +1,19 @@
 version: 0.0
 os: linux
-
 files:
-  - source: /
-    destination: /home/ubuntu/build
-hooks:
-  AfterInstall:
-    - location: deploy.sh
-      timeout: 60
-      runas: root
+  - source: / #인스턴스에 복사할 파일 또는 디렉토리 경로
+    destination: /home/ubuntu/ #인스턴스에서 파일이 복사되는 경로
+#permissions:
+#  - object: /home/ubuntu/build #경로 대상 지정
+#    owner: sinuk #object의 소유자
+#    group: ubuntu #object의 그룹 이름
+#hooks:
+#  ApplicationStop:
+#    - location: scripts/stop.sh
+#  AfterInstall:
+#    - location: scripts/initialize.sh
+#      timeout: 60
+#      runas: root
+#  ApplicationStart:
+#    - location: scripts/start.sh
+#      runas: root

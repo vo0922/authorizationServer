@@ -17,6 +17,10 @@ phases:
   post_build:
     commands:
       - echo Build completed on `date`
+      - cp build/libs/*.jar /build/*.jar/
+      - cp appspec.yml /build/spec/
+      - cp buildspec.yml /build/spec/
+      - cp scripts/** /scripts/
 artifacts:
   files:
     - build/libs/*.jar
