@@ -18,7 +18,7 @@ hooks:
 #  ApplicationStop:
 #    - location: scripts/stop.sh
   AfterInstall:
-    - location: scripts/deploy.sh
+    - location: deploy.sh
       timeout: 60
       runas: root
 #  ApplicationStart:
