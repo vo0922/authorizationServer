@@ -1,0 +1,25 @@
+version: 0.0
+os: linux
+files:
+  - source: / #인스턴스에 복사할 파일 또는 디렉토리 경로
+    destination: /home/ubuntu/build #인스턴스에서 파일이 복사되는 경로
+    overwrite: yes
+  - source: /*.sh
+    destination: /home/ubuntu/scripts
+    overwrite: yes
+  - source: /*.yml
+    destination: /home/ubuntu/build/spec
+    overwrite: yes
+permissions:
+  - object: /home/ubuntu/build #경로 대상 지정
+    owner: sinuk #object의 소유자
+    group: ubuntu #object의 그룹 이름
+hooks:
+  ApplicationStop: #이전 프로그램 중지
+    - location: stop.sh
+  AfterInstall: #프로그램 실행전 환경 세팅
+    - location: afterInstall.sh
+  ApplicationStart: #프로그램 실행
+    - location: start.sh
+      timeout: 60
+      runas: root
