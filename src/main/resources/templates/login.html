@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <title>로그인</title>
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/login.css}" rel="stylesheet" />
+</head>
+<body>
+<img class="wave" src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/wave.png">
+<div class="container">
+    <div class="img">
+        <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/bg.svg">
+    </div>
+    <div class="login-content">
+        <form th:action="@{/login}" method="post">
+            <img src="https://raw.githubusercontent.com/sefyudem/Responsive-Login-Form/master/img/avatar.svg">
+            <h2 class="title">Login</h2>
+            <div class="input-div one">
+                <div class="i">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div class="div">
+                    <input name="username" type="text" class="input" placeholder="ID">
+                </div>
+            </div>
+            <div class="input-div pass">
+                <div class="i">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="div">
+                    <input name="password" type="password" class="input" placeholder="PW">
+                </div>
+            </div>
+            <p th:if="${param.error}">아이디 또는 비밀번호를 확인해주세요.</p>
+            <a href="#">Forgot Password?</a>
+            <input type="submit" class="btn" value="Login">
+        </form>
+    </div>
+</div>
+</body>
+</html>
