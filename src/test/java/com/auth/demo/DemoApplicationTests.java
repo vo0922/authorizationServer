@@ -62,6 +62,7 @@ class DemoApplicationTests {
 	}
 
 	@Test
+    @Transactional
 	void insertClient() {
 
 		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -84,6 +85,5 @@ class DemoApplicationTests {
 
 		assertThat(client).isNotEqualTo(null);
 	}
-*/
 
 }

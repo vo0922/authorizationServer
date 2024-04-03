@@ -42,6 +42,7 @@ public class User implements UserDetails {
     private String password;
 
     @JsonIgnore
+    @Builder.Default
     @OneToMany(mappedBy = "user")
     private List<Authority> authorityList = new ArrayList<>();
     private Boolean accountNonExpired;
