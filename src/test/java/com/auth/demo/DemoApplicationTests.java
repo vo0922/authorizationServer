@@ -24,7 +24,6 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class DemoApplicationTests {
 
-/*
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
@@ -32,7 +31,7 @@ class DemoApplicationTests {
 	@Autowired
 	private ClientRepository clientRepository;
 
-	@Test
+/*	@Test
 	@Transactional
 	void insertUser() {
 
@@ -84,6 +83,6 @@ class DemoApplicationTests {
 		clientRepository.save(client);
 
 		assertThat(client).isNotEqualTo(null);
-	}
+	}*/
 
 }
