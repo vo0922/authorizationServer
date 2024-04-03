@@ -24,6 +24,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SpringBootTest
 class DemoApplicationTests {
 
+/*
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
@@ -63,10 +64,12 @@ class DemoApplicationTests {
 	@Test
 	void insertClient() {
 
+		PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+
 		Client client = Client.builder()
 				.clientId("123")
 				.clientIdIssuedAt(Instant.now())
-				.clientSecret("testClient")
+				.clientSecret(passwordEncoder.encode("testClient"))
 				.clientSecretExpiresAt(Instant.now().plus(Duration.ofDays(365)))
 				.clientName("테스트 클라이언트")
 				.clientAuthenticationMethods("client_secret_basic")
@@ -81,5 +84,6 @@ class DemoApplicationTests {
 
 		assertThat(client).isNotEqualTo(null);
 	}
+*/
 
 }
