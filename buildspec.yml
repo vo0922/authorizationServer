@@ -19,12 +19,12 @@ phases:
       - echo Build Starting on `date`
       - ./gradlew build
       - echo Running SpotBugs analysis
-      - spotbugs -textui -xml -output spotbugsReport.xml src/
+      - spotbugs -textui -xml -output spotbugsReport.xml ./src/
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Uploading SpotBugs report to S3
-      - aws s3 cp spotbugsReport.xml s3://your-bucket-name/spotbugs
+      - aws s3 cp spotbugsReport.xml s3://sinukbucket/spot-bug/
 artifacts:
   files:
     - build/libs/*.jar
