@@ -8,8 +8,8 @@ phases:
       - echo Installing SpotBugs
       - wget https://github.com/spotbugs/spotbugs/releases/download/4.2.3/spotbugs-4.2.3.zip
       - unzip spotbugs-4.2.3.zip
-      - export PATH=$PATH:/path/to/spotbugs-4.2.3/bin/spotbugs
-      - chmod +x /path/to/spotbugs-4.2.3/bin
+      - export PATH=$PATH:$(pwd)/spotbugs-4.2.3/bin
+      - chmod +x $(pwd)/spotbugs-4.2.3/bin/spotbugs
   pre_build:
     commands:
       - echo pre Build Starting
