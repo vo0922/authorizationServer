@@ -4,6 +4,12 @@ phases:
   install:
     runtime-versions:
       java: corretto17
+    commands:
+      - echo Installing SpotBugs
+      - wget https://github.com/spotbugs/spotbugs/releases/download/4.2.3/spotbugs-4.2.3.zip
+      - unzip spotbugs-4.2.3.zip
+      - export PATH=$PATH:$(pwd)/spotbugs-4.2.3/bin
+      - chmod +x $(pwd)/spotbugs-4.2.3/bin/spotbugs
   pre_build:
     commands:
       - echo pre Build Starting
@@ -13,9 +19,13 @@ phases:
     commands:
       - echo Build Starting on `date`
       - ./gradlew build
+      - echo Running SpotBugs analysis
+      - spotbugs -textui -xml -output spotbugsReport.xml ./src/
   post_build:
     commands:
       - echo Build completed on `date`
+      - echo Uploading SpotBugs report to S3
+      - aws s3 cp spotbugsReport.xml s3://sinukbucket/spot-bug/
 artifacts:
   files:
     - build/libs/*.jar
