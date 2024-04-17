@@ -16,10 +16,8 @@ permissions:
     group: ubuntu #object의 그룹 이름
 hooks:
   ApplicationStop: #이전 프로그램 중지
-    - location: stop.sh
-  AfterInstall: #프로그램 실행전 환경 세팅
-    - location: afterInstall.sh
+    - location: /home/ubuntu/scripts/stop.sh
   ApplicationStart: #프로그램 실행
-    - location: start.sh
+    - location: /home/ubuntu/scripts/start.sh
       timeout: 60
       runas: root
