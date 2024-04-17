@@ -6,10 +6,6 @@ files:
     overwrite: yes
     files:
       - "*.jar"
-  - source: /
-    destination: /home/ubuntu/aws_build
-    overwrite: yes
-    files:
       - "*.yml"
   - source: /
     destination: /home/ubuntu/scripts
