@@ -4,22 +4,14 @@ files:
   - source: / #인스턴스에 복사할 파일 또는 디렉토리 경로
     destination: /home/ubuntu/aws_build #인스턴스에서 파일이 복사되는 경로
     overwrite: yes
-    files:
-      - "*.jar"
-      - "*.yml"
-  - source: /
-    destination: /home/ubuntu/scripts
-    overwrite: yes
-    files:
-      - "*.sh"
 permissions:
   - object: /home/ubuntu/build #경로 대상 지정
     owner: sinuk #object의 소유자
     group: ubuntu #object의 그룹 이름
 hooks:
   ApplicationStop: #이전 프로그램 중지
-    - location: /home/ubuntu/scripts/stop.sh
+    - location: /stop.sh
   ApplicationStart: #프로그램 실행
-    - location: /home/ubuntu/scripts/start.sh
+    - location: /start.sh
       timeout: 60
       runas: root
