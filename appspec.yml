@@ -1,7 +1,10 @@
 version: 0.0
 os: linux
 files:
-  - source: / #인스턴스에 복사할 파일 또는 디렉토리 경로
+  - source: /*.jar #인스턴스에 복사할 파일 또는 디렉토리 경로
+    destination: /home/ubuntu/aws_build #인스턴스에서 파일이 복사되는 경로
+    overwrite: yes
+  - source: /*.yml #인스턴스에 복사할 파일 또는 디렉토리 경로
     destination: /home/ubuntu/aws_build #인스턴스에서 파일이 복사되는 경로
     overwrite: yes
   - source: /*.sh
