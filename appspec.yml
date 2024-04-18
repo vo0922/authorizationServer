@@ -5,13 +5,13 @@ files:
     destination: /home/ubuntu/aws_build #인스턴스에서 파일이 복사되는 경로
     overwrite: yes
 permissions:
-  - object: /home/ubuntu/build #경로 대상 지정
+  - object: /home/ubuntu/aws_build #경로 대상 지정
     owner: sinuk #object의 소유자
     group: ubuntu #object의 그룹 이름
 hooks:
   ApplicationStop: #이전 프로그램 중지
-    - location: /stop.sh
+    - location: stop.sh
   ApplicationStart: #프로그램 실행
-    - location: /start.sh
+    - location: start.sh
       timeout: 60
       runas: root
